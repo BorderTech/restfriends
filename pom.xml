@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.github.bordertech.restfriends</groupId>
+	<name>restfriends-parent</name>
+	<artifactId>restfriends-parent</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<parent>
+		<groupId>com.github.bordertech.common</groupId>
+		<artifactId>qa-parent</artifactId>
+		<version>1.0.11</version>
+	</parent>
+
+	<packaging>pom</packaging>
+
+	<properties>
+		<bt.qa.skip>false</bt.qa.skip>
+	</properties>
+
+	<description>
+		Utilities for working with Swagger and REST.
+	</description>
+
+	<url>https://github.com/bordertech/restfriends</url>
+
+	<scm>
+		<url>https://github.com/bordertech/restfriends</url>
+		<connection>scm:git:https://github.com/bordertech/restfriends.git</connection>
+		<developerConnection>scm:git:https://github.com/bordertech/restfriends.git</developerConnection>
+		<tag>java-restfriends-1.0.0</tag>
+	</scm>
+
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/bordertech/restfriends/issues</url>
+	</issueManagement>
+
+	<ciManagement>
+		<system>Travis CI</system>
+		<url>https://travis-ci.com/BorderTech/restfriends</url>
+	</ciManagement>
+	<modules>
+		<module>restfriends-envelope</module>
+		<module>restfriends-swagger-jersey1</module>
+		<module>restfriends-swagger-json-fix</module>
+	</modules>
+	<dependencyManagement>
+		<dependencies>
+			<!-- Didums -->
+			<dependency>
+				<groupId>com.github.bordertech.didums</groupId>
+				<artifactId>didums-core</artifactId>
+				<version>1.0.3</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+</project>
