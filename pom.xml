@@ -5,7 +5,7 @@
 	<groupId>com.github.bordertech.restfriends</groupId>
 	<name>restfriends-parent</name>
 	<artifactId>restfriends-parent</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 
 	<parent>
 		<groupId>com.github.bordertech.common</groupId>
@@ -29,7 +29,7 @@
 		<url>https://github.com/bordertech/restfriends</url>
 		<connection>scm:git:https://github.com/bordertech/restfriends.git</connection>
 		<developerConnection>scm:git:https://github.com/bordertech/restfriends.git</developerConnection>
-		<tag>java-restfriends-1.0.0</tag>
+		<tag>restfriends-parent-1.0.0</tag>
 	</scm>
 
 	<issueManagement>
