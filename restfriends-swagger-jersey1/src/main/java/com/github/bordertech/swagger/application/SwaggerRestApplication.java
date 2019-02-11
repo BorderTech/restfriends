@@ -3,6 +3,7 @@ package com.github.bordertech.swagger.application;
 import com.github.bordertech.swagger.handler.ExceptionHandler;
 import com.github.bordertech.swagger.handler.RestBusinessExceptionHandler;
 import com.github.bordertech.swagger.handler.RestSystemExceptionHandler;
+import com.github.bordertech.swagger.servlet.SwaggerJerseyServlet;
 import io.swagger.jaxrs.listing.AcceptHeaderApiListingResource;
 import io.swagger.jaxrs.listing.ApiListingResource;
 import io.swagger.jaxrs.listing.SwaggerSerializers;
@@ -15,6 +16,11 @@ import javax.ws.rs.core.Application;
 
 /**
  * Configure Swagger REST Application.
+ * <p>
+ * Projects extend this class to define project specific resources.
+ * </p>
+ *
+ * @see SwaggerJerseyServlet
  */
 public class SwaggerRestApplication extends Application {
 

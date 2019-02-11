@@ -45,6 +45,7 @@
 		<module>restfriends-envelope</module>
 		<module>restfriends-swagger-jersey1</module>
 		<module>restfriends-swagger-json-fix</module>
+		<module>restfriends-lde-tomcat</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>
