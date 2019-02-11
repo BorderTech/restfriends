@@ -5,6 +5,7 @@ cache:
 addons:
   sonarcloud:
     organization: "bordertech-github"
+    projectKey: "BorderTech_restfriends"
   
 before_install:
 - echo "MAVEN_OPTS='-Xmx512m -XX:MaxPermSize=128m'" > ~/.mavenrc
