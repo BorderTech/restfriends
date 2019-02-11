@@ -4,7 +4,7 @@ cache:
 
 addons:
   sonarcloud:
-    organization: "BorderTech_restfriends"
+    organization: "bordertech-github"
   
 before_install:
 - echo "MAVEN_OPTS='-Xmx512m -XX:MaxPermSize=128m'" > ~/.mavenrc
@@ -17,9 +17,8 @@ jdk:
 
 ## Travis installs the project with the following maven command:- "mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V"
 script:
- - mvn package
+ - mvn package sonar:sonar
 
-## Send Coverage to Sonarcloud and Codacy
+## Send Coverage to Codacy
 after_success:
-  - mvn sonar:sonar
   - java -jar codacy-coverage-reporter-4.0.5-assembly.jar report -l Java -r restfriends-envelope/target/site/jacoco/jacoco.xml
