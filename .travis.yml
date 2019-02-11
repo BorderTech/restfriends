@@ -2,6 +2,10 @@ cache:
   directories:
   - $HOME/.m2
 
+addons:
+  sonarcloud:
+    organization: "BorderTech_restfriends"
+  
 before_install:
 - echo "MAVEN_OPTS='-Xmx512m -XX:MaxPermSize=128m'" > ~/.mavenrc
 - mvn clean
@@ -15,6 +19,7 @@ jdk:
 script:
  - mvn package
 
-## Send Coverage to Codacy
+## Send Coverage to Sonarcloud and Codacy
 after_success:
+  - mvn sonar:sonar
   - java -jar codacy-coverage-reporter-4.0.5-assembly.jar report -l Java -r restfriends-envelope/target/site/jacoco/jacoco.xml
