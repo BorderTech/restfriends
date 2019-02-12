@@ -5,8 +5,6 @@ cache:
 addons:
   sonarcloud:
     organization: "bordertech-github"
-    token:
-      secure: "JcL1zY0c0I6MbUVYcYGObmLioDQMVJizoaU6cQKjeojvi2n9S3o3TD5g6fZuVqgH/aVJ72g6yKeNNh2dyLB6hLiDJHfYegL/5cAm/+DYv/5FLYby928+CwRMRQNblT3nH/FddVy5lxC5sdkrxjl1U8BtTQuuXR2F0D3PbZEUch1XA2udwHudcbuMC6QfYIbpePLzV/9CdJ4OQI5cNgJ1BG8TrPmyWGNcU4rFTzvyIY+5h+6Uzmj81/DTX/f/tK5Xxupj2L5n+l49jXRptd6hv4Om3S66hDVPSHgr5a365pTj9n9zrKMHdU739D1b9D0EWj0JtzWLBdZAn18GkWMPf+Ry5JxQ9p11Ty1u1hO8IGohnWM0JB/nlqJVaGGmWTuQIkXUGe53ZZ/V4fJY9k+EP/tv9/fuxBn61f9s8UYL8RYDwdZAGuPKtjvibILqSm/cO+uD5VDM0HesL8YEFlZ1RvOYW9OmN9P16y8bq1QnUewL4AHoh9PArmjwDC4Wz06KuuoEZ2XtkBqzEsh9iVJxU6Kw1DsYhF7rD+Jglaj2j1gpjsdSs4OxHId/x7XUIjjxAzrf4L553fEvj+vxphmmfel87tX6b06KxU1HKZm1MlShsMai3V0AaQLN90HUDhUiagTrCn/OyuHywU+/Iy5dPbYgISFXnSzCL6qSIptI7mg="
   
 before_install:
 - echo "MAVEN_OPTS='-Xmx512m -XX:MaxPermSize=128m'" > ~/.mavenrc
@@ -19,7 +17,7 @@ jdk:
 
 ## Travis installs the project with the following maven command:- "mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V"
 script:
- - mvn package sonar:sonar
+ - mvn package sonar:sonar -Dsonar.login=${SONAR-TOKEN}
 
 ## Send Coverage to Codacy
 after_success:
