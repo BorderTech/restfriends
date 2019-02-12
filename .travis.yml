@@ -17,7 +17,7 @@ jdk:
 
 ## Travis installs the project with the following maven command:- "mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V"
 script:
- - mvn package sonar:sonar -Dsonar.login=${SONAR-TOKEN}
+ - mvn package sonar:sonar -Dsonar.login=${SONAR_TOKEN}
 
 ## Send Coverage to Codacy
 after_success:
