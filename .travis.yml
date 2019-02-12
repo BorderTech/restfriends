@@ -4,7 +4,6 @@ cache:
 
 addons:
   sonarcloud:
-    projectKey: "BorderTech_restfriends"
     organization: "bordertech-github"
     token:
       secure: "q6xWMby7Fj2IiaI8TuE87kUUmA17cept9Df/+uACFgrR/6HiCQ6CYrefjbZ1aRX+uVd/WEqsyj27DljjMqUJWJ/9iwaf7pdcTCmBMZrVTGIw1a2I1pU2eskvyz/fDTFUllOEshMDYdX8YZGSwh2zU5MozxESSJQk71ee3MDvYKxCAQ0nPUT0yxMrtWId8ztmpCs4ESpqhbPmBCdEZHwsPEifvl0AToFwdb7I6r6KbCHw2xpI4qomwC9rSWjOWIrOiU6mzEbs8u+h5sQktFP8FIHPzUVuoTF4qxNrhb6w6gdfnryKIb7UWqVDOxLREQZ4KB8Ad+R2t4b9Z8++Gnxpg7PL4+AMYIOfRE5KR8XsuEiQ1MK3bgoOt0ySifDpiLfCuDNZO9RL8+p1tDPQ3+9y+v3VAfx0qHjJLZD00ymLVIMbDCePhbP8eXpwvkSNIvXhzLB//3bLtGh1uRsX6eEjgR/0eWGxhIOxAqEJ+GlHTcshpwBJBqtAL3txXYHBPL23pgEByTErP1yJUG0n7PDpDXIz5TUIzt80+Uy8fRpd4WeshcONJRqB+D56tvjsJzJHVo7EuMWreuDvDLZptxxP5K968utkt5lcCqv2LADa2pYGKKlnrUPhzv8bT1r35Bsk6YCqnLAsrNdyT782/oGT4aaumzgm9E4jjB7H0LtCRP8="
@@ -20,7 +19,7 @@ jdk:
 
 ## Travis installs the project with the following maven command:- "mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V"
 script:
- - mvn package sonar:sonar
+ - mvn package sonar:sonar -Dsonar.projectKey=BorderTech_restfriends
 
 ## Send Coverage to Codacy
 after_success:
