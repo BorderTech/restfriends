@@ -1,3 +1,5 @@
+dist: trusty
+
 cache:
   directories:
   - $HOME/.m2
@@ -6,11 +8,12 @@ addons:
   sonarcloud:
     organization: "bordertech-github"
     token:
-      secure: "joXRzhef2JO40aRmwf/A4sCLt4kJZS4md4Gg/5DUSvWft+dCNPGWumGUez8fOjNl34niatt6mHa3k9wsz5umEDy2FREKXjcMsoT39eaG8i9m0LgVi4JoT+1AhtbRYTPw9sv0gO4b3TPlyzwNUADs8HAEI4n21xVV2Ps3LB47FOfWNIVyvM3h1D07sqTv+DOhHYsoMqAUCfX+F5Vl/Ge56B7wfk7dqr3ZoLEny8IAHzv7JeuVPeXVlOv7eGeTHZHVoHLdg1CpiIbY9zw5sT4h3cQ0T3gkzUGHDZokEAFw0qLBktmgdhjwN/kuK4thfVbQJmzGJBAZKuqhwW2K/lGRY+8a52HGRUXPyedoue7ehEOfnoqWVHsmNAOa54kL0yLJV60crlDFM1KU8h6cYJNJhdAqZC0Z8VqtABExDAT3RK+cW/ocwxGP7v4fyMBuiBA6sdXrU/pVwHvDSdatdXcX1uXLOow6jOxA7CijU5HlE4OCgDGqh02YcAfbi8MZEhX2mPB+bLnNc3DrK7NNVdvb1AYR1bio0IV2Rr4nsZIrixx6Kvx8l/VrQQFFKq75td+z9YGBp0NJMOS1jGrqFRyRaOsdkef93hz5YtDioWKd7Y/YEdrm4DC11dmGs6EZNsY//ulbGhjADu2g3mVnCV+MQtk/gg0+S7Zk0uRr1C9D2c0="
+      secure: $SONAR_TOKEN
 
 before_install:
 - echo "MAVEN_OPTS='-Xmx512m -XX:MaxPermSize=128m'" > ~/.mavenrc
 - mvn clean
+## Codacy coverage reporter download
 - wget https://github.com/codacy/codacy-coverage-reporter/releases/download/4.0.5/codacy-coverage-reporter-4.0.5-assembly.jar
 
 language: Java
@@ -19,7 +22,7 @@ jdk:
 
 ## Travis installs the project with the following maven command:- "mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V"
 script:
- - mvn package sonar:sonar -Dsonar.projectKey=bordertech-restfriends
+ - mvn package sonar:sonar -Dsonar.projectKey="bordertech-restfriends"
 
 ## Send Coverage to Codacy
 after_success:
