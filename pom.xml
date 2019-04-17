@@ -5,7 +5,7 @@
 	<groupId>com.github.bordertech.restfriends</groupId>
 	<name>restfriends-parent</name>
 	<artifactId>restfriends-parent</artifactId>
-	<version>1.0.2-SNAPSHOT</version>
+	<version>1.0.3-SNAPSHOT</version>
 
 	<parent>
 		<groupId>com.github.bordertech.common</groupId>
