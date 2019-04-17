@@ -14,7 +14,7 @@ public final class PathUtil {
 	}
 
 	/**
-	 * Combine a base path and relative path URL.
+	 * Combine a base path and relative path URL into an absolute path.
 	 * <p>
 	 * An empty or null base path is treated as root "/".
 	 * </p>
@@ -25,23 +25,36 @@ public final class PathUtil {
 	 */
 	public static String prefixUrl(final String basePath, final String relativePath) {
 
-		String prefix = StringUtils.isBlank(basePath) ? "/" : basePath;
+		String prefix = basePath == null ? "" : basePath;
+		String suffix = relativePath == null ? "" : relativePath;
 
-		boolean prefixHas = prefix.endsWith("/");
-		boolean relativeHas = relativePath.startsWith("/");
+		StringBuilder result = new StringBuilder();
 
-		StringBuilder result = new StringBuilder(prefix);
-		// Both have a dash
-		if (prefixHas && relativeHas) {
-			// Remove dash
-			result.append(relativePath.substring(1));
-		} else if (!prefixHas && !relativeHas) {
-			// Add a dash
+		// Always absolute path
+		if (!prefix.startsWith("/")) {
 			result.append("/");
-			result.append(relativePath);
-		} else {
-			result.append(relativePath);
 		}
+
+		// Prefix
+		result.append(prefix);
+
+		// Suffix
+		if (!StringUtils.isEmpty(suffix)) {
+			boolean resultHas = result.charAt(result.length() - 1) == '/';
+			boolean suffixHas = suffix.startsWith("/");
+			// Both have a dash
+			if (resultHas && suffixHas) {
+				// Remove dash
+				result.append(suffix.substring(1));
+			} else if (!resultHas && !suffixHas) {
+				// Add a dash
+				result.append("/");
+				result.append(suffix);
+			} else {
+				result.append(suffix);
+			}
+		}
+
 		return result.toString();
 	}
 
