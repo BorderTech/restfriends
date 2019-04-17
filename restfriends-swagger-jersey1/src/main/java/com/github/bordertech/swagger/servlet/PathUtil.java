@@ -1,5 +1,7 @@
 package com.github.bordertech.swagger.servlet;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * Path helper class.
  */
@@ -12,32 +14,33 @@ public final class PathUtil {
 	}
 
 	/**
-	 * Combine a base bath and relative URL.
+	 * Combine a base path and relative path URL.
+	 * <p>
+	 * An empty or null base path is treated as root "/".
+	 * </p>
 	 *
-	 * @param prefix the prefix for the URL
-	 * @param relativeUrl the relative URL
-	 * @return the prefix appended to the relative URL
+	 * @param basePath the base URL
+	 * @param relativePath the relative URL
+	 * @return the base path appended to the relative URL
 	 */
-	public static String prefixUrl(final String prefix, final String relativeUrl) {
-		if (prefix == null || prefix.isEmpty()) {
-			return relativeUrl;
-		}
+	public static String prefixUrl(final String basePath, final String relativePath) {
+
+		String prefix = StringUtils.isBlank(basePath) ? "/" : basePath;
 
 		boolean prefixHas = prefix.endsWith("/");
-		boolean relativeHas = relativeUrl.startsWith("/");
+		boolean relativeHas = relativePath.startsWith("/");
 
-		StringBuilder result = new StringBuilder();
-		result.append(prefix);
+		StringBuilder result = new StringBuilder(prefix);
 		// Both have a dash
 		if (prefixHas && relativeHas) {
 			// Remove dash
-			result.append(relativeUrl.substring(1));
+			result.append(relativePath.substring(1));
 		} else if (!prefixHas && !relativeHas) {
 			// Add a dash
 			result.append("/");
-			result.append(relativeUrl);
+			result.append(relativePath);
 		} else {
-			result.append(relativeUrl);
+			result.append(relativePath);
 		}
 		return result.toString();
 	}
