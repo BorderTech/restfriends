@@ -63,13 +63,13 @@
 		<dependency>
 			<groupId>io.swagger</groupId>
 			<artifactId>swagger-annotations</artifactId>
-			<version>1.5.21</version>
+			<version>1.5.22</version>
 		</dependency>
 		<!-- JERSEY 1 -->
 		<dependency>
 			<groupId>io.swagger</groupId>
 			<artifactId>swagger-jersey-jaxrs</artifactId>
-			<version>1.5.21</version>
+			<version>1.5.22</version>
 			<exclusions>
 				<exclusion>
 					<groupId>com.sun.jersey</groupId>
@@ -112,7 +112,7 @@
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-			<version>27.0.1-jre</version>
+			<version>27.1-jre</version>
 		</dependency>
 
 		<!-- Jersey 2 for REST Implementation -->
@@ -130,6 +130,12 @@
 			<artifactId>swagger-jersey2-jaxrs</artifactId>
 		</dependency>
 		-->
+
+		<!-- Junit -->
+		<dependency>
+			<groupId>org.junit.vintage</groupId>
+			<artifactId>junit-vintage-engine</artifactId>
+		</dependency>
 
 	</dependencies>
 

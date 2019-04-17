@@ -1,5 +1,7 @@
 package com.github.bordertech.swagger.servlet;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * Path helper class.
  */
@@ -12,33 +14,47 @@ public final class PathUtil {
 	}
 
 	/**
-	 * Combine a base bath and relative URL.
+	 * Combine a base path and relative path URL into an absolute path.
+	 * <p>
+	 * An empty or null base path is treated as root "/".
+	 * </p>
 	 *
-	 * @param prefix the prefix for the URL
-	 * @param relativeUrl the relative URL
-	 * @return the prefix appended to the relative URL
+	 * @param basePath the base URL
+	 * @param relativePath the relative URL
+	 * @return the base path appended to the relative URL
 	 */
-	public static String prefixUrl(final String prefix, final String relativeUrl) {
-		if (prefix == null || prefix.isEmpty()) {
-			return relativeUrl;
-		}
+	public static String prefixUrl(final String basePath, final String relativePath) {
 
-		boolean prefixHas = prefix.endsWith("/");
-		boolean relativeHas = relativeUrl.startsWith("/");
+		String prefix = basePath == null ? "" : basePath;
+		String suffix = relativePath == null ? "" : relativePath;
 
 		StringBuilder result = new StringBuilder();
-		result.append(prefix);
-		// Both have a dash
-		if (prefixHas && relativeHas) {
-			// Remove dash
-			result.append(relativeUrl.substring(1));
-		} else if (!prefixHas && !relativeHas) {
-			// Add a dash
+
+		// Always absolute path
+		if (!prefix.startsWith("/")) {
 			result.append("/");
-			result.append(relativeUrl);
-		} else {
-			result.append(relativeUrl);
 		}
+
+		// Prefix
+		result.append(prefix);
+
+		// Suffix
+		if (!StringUtils.isEmpty(suffix)) {
+			boolean resultHas = result.charAt(result.length() - 1) == '/';
+			boolean suffixHas = suffix.startsWith("/");
+			// Both have a dash
+			if (resultHas && suffixHas) {
+				// Remove dash
+				result.append(suffix.substring(1));
+			} else if (!resultHas && !suffixHas) {
+				// Add a dash
+				result.append("/");
+				result.append(suffix);
+			} else {
+				result.append(suffix);
+			}
+		}
+
 		return result.toString();
 	}
 
