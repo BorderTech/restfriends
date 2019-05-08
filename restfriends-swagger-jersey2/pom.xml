@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<name>restfriends-swagger-jersey1</name>
-	<artifactId>restfriends-swagger-jersey1</artifactId>
-	<description>Swagger Application with Jersey1</description>
+	<name>restfriends-swagger-jersey2</name>
+	<artifactId>restfriends-swagger-jersey2</artifactId>
+	<description>Swagger Application with Jersey2</description>
 
 	<parent>
 		<groupId>com.github.bordertech.restfriends</groupId>
@@ -25,37 +25,11 @@
 			<groupId>com.github.bordertech.restfriends</groupId>
 			<artifactId>restfriends-swagger-core</artifactId>
 			<version>${project.version}</version>
-		</dependency>
-
-		<!-- Jersey1 Server -->
-		<!-- Jersey1 for REST Implementation (because has to run on Websphere) -->
-		<!-- Jersey for REST Implementation. 2.26 is Java 8 -->
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-core</artifactId>
-			<version>1.19.4</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-servlet</artifactId>
-			<version>1.19.4</version>
-		</dependency>
-		<!-- Jersey 1 uses Jackson 1 by default. This brings in Jackson 2 -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.jaxrs</groupId>
-			<artifactId>jackson-jaxrs-json-provider</artifactId>
-			<version>2.9.8</version>
-		</dependency>
-
-		<!-- Swagger Jersey 1 -->
-		<dependency>
-			<groupId>io.swagger</groupId>
-			<artifactId>swagger-jersey-jaxrs</artifactId>
-			<version>1.5.22</version>
+			<!-- Fix divergence -->
 			<exclusions>
 				<exclusion>
-					<groupId>com.sun.jersey</groupId>
-					<artifactId>jersey-core</artifactId>
+					<groupId>javax.validation</groupId>
+					<artifactId>validation-api</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -68,11 +42,40 @@
 			<version>3.1.0</version>
 		</dependency>
 
-		<!-- Config -->
+		<!-- Jersey2 Server -->
+		<!-- Jersey2 for REST Implementation -->
 		<dependency>
-			<groupId>com.github.bordertech.config</groupId>
-			<artifactId>config</artifactId>
-			<version>1.0.3</version>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet</artifactId>
+			<version>2.28</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+			<version>2.28</version>
+			<!-- Fix divergence -->
+			<exclusions>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+					<artifactId>jackson-annotations</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-jersey2-jaxrs</artifactId>
+			<version>1.5.22</version>
+			<!-- Fix divergence -->
+			<exclusions>
+				<exclusion>
+					<groupId>org.glassfish.jersey.containers</groupId>
+					<artifactId>jersey-container-servlet-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.glassfish.jersey.core</groupId>
+					<artifactId>jersey-common</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!-- Junit -->

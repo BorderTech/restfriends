@@ -1,4 +1,4 @@
 /**
- * Swagger and Jersey1 servlet.
+ * Swagger servlet helpers.
  */
 package com.github.bordertech.swagger.servlet;
