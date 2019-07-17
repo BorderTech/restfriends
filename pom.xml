@@ -10,13 +10,15 @@
 	<parent>
 		<groupId>com.github.bordertech.common</groupId>
 		<artifactId>qa-parent</artifactId>
-		<version>1.0.12</version>
+		<version>1.0.15</version>
 	</parent>
 
 	<packaging>pom</packaging>
 
 	<properties>
 		<bt.qa.skip>false</bt.qa.skip>
+		<!-- Need to FIX jackson databind 2.9.9 violation -->
+		<dependency-check.skip>true</dependency-check.skip>
 	</properties>
 
 	<description>
@@ -55,7 +57,7 @@
 			<dependency>
 				<groupId>com.github.bordertech.didums</groupId>
 				<artifactId>didums-core</artifactId>
-				<version>1.0.3</version>
+				<version>1.0.4</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

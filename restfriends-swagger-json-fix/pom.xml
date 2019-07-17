@@ -18,7 +18,7 @@
 	<description>FIX Swagger JSON Generation</description>
 
 	<properties>
-		<bt.owasp.skip>true</bt.owasp.skip>
+		<dependency-check.skip>true</dependency-check.skip>
 	</properties>
 
 	<dependencies>
