@@ -1,7 +1,6 @@
 package com.github.bordertech.swagger.servlet;
 
 import com.github.bordertech.swagger.application.SwaggerRestApplication;
-import com.sun.jersey.spi.container.servlet.ServletContainer;
 import io.swagger.config.SwaggerConfig;
 import io.swagger.jaxrs.config.SwaggerContextService;
 import io.swagger.models.Swagger;
@@ -11,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
+import org.glassfish.jersey.servlet.ServletContainer;
 
 /**
  * Jersey servlet that configures swagger.
@@ -29,7 +29,7 @@ import org.apache.commons.lang3.StringUtils;
  *
  * @see SwaggerRestApplication
  */
-public class SwaggerJerseyServlet extends ServletContainer {
+public class SwaggerJersey2Servlet extends ServletContainer {
 
 	private String host;
 	private String apiPath;

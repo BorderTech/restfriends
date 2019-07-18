@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<name>restfriends-swagger-jersey2</name>
+	<artifactId>restfriends-swagger-jersey2</artifactId>
+	<description>Swagger Application with Jersey2</description>
+
+	<parent>
+		<groupId>com.github.bordertech.restfriends</groupId>
+		<artifactId>restfriends-parent</artifactId>
+		<version>1.0.4-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<packaging>jar</packaging>
+
+	<properties>
+		<suppressionFiles>${basedir}/../jackson-owasp-suppression.xml</suppressionFiles>
+	</properties>
+
+	<dependencies>
+		<!-- Restfriends Swagger Core -->
+		<dependency>
+			<groupId>com.github.bordertech.restfriends</groupId>
+			<artifactId>restfriends-swagger-core</artifactId>
+			<version>${project.version}</version>
+			<exclusions>
+				<!-- Wrong version of jaxrs -->
+				<exclusion>
+					<groupId>javax.ws.rs</groupId>
+					<artifactId>jsr311-api</artifactId>
+				</exclusion>
+				<!-- Fix divergence -->
+				<exclusion>
+					<groupId>javax.validation</groupId>
+					<artifactId>validation-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.javassist</groupId>
+					<artifactId>javassist</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- Servlet API -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<scope>provided</scope>
+			<version>3.1.0</version>
+		</dependency>
+
+		<!-- Jersey2 Server -->
+		<!-- Jersey2 for REST Implementation -->
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet</artifactId>
+			<version>2.29</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+			<version>2.29</version>
+			<!-- Fix divergence -->
+			<exclusions>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+					<artifactId>jackson-annotations</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-jersey2-jaxrs</artifactId>
+			<version>1.5.22</version>
+			<!-- Fix divergence -->
+			<exclusions>
+				<exclusion>
+					<groupId>org.glassfish.jersey.containers</groupId>
+					<artifactId>jersey-container-servlet-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.glassfish.jersey.core</groupId>
+					<artifactId>jersey-common</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.javassist</groupId>
+					<artifactId>javassist</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- After version 2.26 HK2 has to be specified -->
+		<dependency>
+			<groupId>org.glassfish.jersey.inject</groupId>
+			<artifactId>jersey-hk2</artifactId>
+			<version>2.29</version>
+		</dependency>
+
+		<!-- Junit -->
+		<dependency>
+			<groupId>org.junit.vintage</groupId>
+			<artifactId>junit-vintage-engine</artifactId>
+		</dependency>
+
+	</dependencies>
+
+</project>

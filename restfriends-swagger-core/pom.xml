@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<name>restfriends-swagger-core</name>
+	<artifactId>restfriends-swagger-core</artifactId>
+	<description>Swagger Core Application</description>
+
+	<parent>
+		<groupId>com.github.bordertech.restfriends</groupId>
+		<artifactId>restfriends-parent</artifactId>
+		<version>1.0.4-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<packaging>jar</packaging>
+
+	<properties>
+		<spotbugs.excludeFilterFile>${basedir}/spotbugs-exclude-filter.xml</spotbugs.excludeFilterFile>
+		<suppressionFiles>${basedir}/../jackson-owasp-suppression.xml</suppressionFiles>
+	</properties>
+
+	<dependencies>
+		<!-- Rest Envelope -->
+		<dependency>
+			<groupId>com.github.bordertech.restfriends</groupId>
+			<artifactId>restfriends-envelope</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<!-- TEMP Swagger Fix -->
+		<dependency>
+			<groupId>com.github.bordertech.restfriends</groupId>
+			<artifactId>restfriends-swagger-json-fix</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<!-- Swagger -->
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-jaxrs</artifactId>
+			<version>1.5.22</version>
+			<!-- Fix divergence -->
+			<exclusions>
+				<exclusion>
+					<groupId>com.google.guava</groupId>
+					<artifactId>guava</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+					<artifactId>jackson-annotations</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+					<artifactId>jackson-databind</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+					<artifactId>jackson-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>commons-lang3</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- Config -->
+		<dependency> 
+			<groupId>com.github.bordertech.config</groupId>
+			<artifactId>config</artifactId>
+		</dependency>
+
+		<!-- Date and Time Formatting -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-joda</artifactId>
+			<version>2.9.9</version>
+		</dependency>
+
+		<!-- Servlet API -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Fix divergence -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>28.0-jre</version>
+		</dependency>
+
+		<!-- Junit -->
+		<dependency>
+			<groupId>org.junit.vintage</groupId>
+			<artifactId>junit-vintage-engine</artifactId>
+		</dependency>
+
+	</dependencies>
+
+</project>

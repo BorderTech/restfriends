@@ -1,5 +1,6 @@
 package com.github.bordertech.restfriends.envelope;
 
+import com.github.bordertech.restfriends.envelope.ErrorDetail;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
