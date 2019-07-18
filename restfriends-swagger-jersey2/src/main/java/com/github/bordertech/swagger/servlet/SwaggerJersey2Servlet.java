@@ -22,8 +22,8 @@ import org.glassfish.jersey.servlet.ServletContainer;
  * </p>
  * <ul>
  * <li> {@code com.sun.jersey.api.json.POJOMappingFeature} = {@code true} to enable JSON.</li>
- * <li> {@code javax.ws.rs.Application} = {@code com.example.MySwaggerRestApplication}. This is the projects implementation of
- * {@link SwaggerRestApplication}.
+ * <li> {@code javax.ws.rs.Application} = {@code com.example.MySwaggerRestApplication}. This is the projects
+ * implementation of {@link SwaggerRestApplication}.
  * </li>
  * </ul>
  *
@@ -31,7 +31,6 @@ import org.glassfish.jersey.servlet.ServletContainer;
  */
 public class SwaggerJersey2Servlet extends ServletContainer {
 
-	private String context;
 	private String host;
 	private String apiPath;
 
@@ -40,7 +39,7 @@ public class SwaggerJersey2Servlet extends ServletContainer {
 		super.init(config);
 		configSwagger();
 		// Application context
-		context = config.getServletContext().getContextPath();
+		String context = config.getServletContext().getContextPath();
 		// Set API path
 		apiPath = PathUtil.prefixUrl(context, SwaggerPathConfig.getApiPath());
 		// Check if HOST has been set via properties
