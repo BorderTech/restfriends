@@ -17,8 +17,6 @@
 
 	<properties>
 		<bt.qa.skip>false</bt.qa.skip>
-		<!-- Need to FIX jackson databind 2.9.9 violation -->
-		<dependency-check.skip>true</dependency-check.skip>
 	</properties>
 
 	<description>
@@ -53,12 +51,14 @@
 
 	<dependencyManagement>
 		<dependencies>
-			<!-- Didums -->
+
+			<!-- Config -->
 			<dependency>
-				<groupId>com.github.bordertech.didums</groupId>
-				<artifactId>didums-core</artifactId>
-				<version>1.0.4</version>
+				<groupId>com.github.bordertech.config</groupId>
+				<artifactId>config</artifactId>
+				<version>1.0.5</version>
 			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 

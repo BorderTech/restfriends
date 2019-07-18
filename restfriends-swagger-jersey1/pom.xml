@@ -16,7 +16,7 @@
 	<packaging>jar</packaging>
 
 	<properties>
-		<spotbugs.excludeFilterFile>${basedir}/spotbugs-exclude-filter.xml</spotbugs.excludeFilterFile>
+		<suppressionFiles>${basedir}/../jackson-owasp-suppression.xml</suppressionFiles>
 	</properties>
 
 	<dependencies>
@@ -28,8 +28,7 @@
 		</dependency>
 
 		<!-- Jersey1 Server -->
-		<!-- Jersey1 for REST Implementation (because has to run on Websphere) -->
-		<!-- Jersey for REST Implementation. 2.26 is Java 8 -->
+		<!-- Jersey1 for REST Implementation (because can run on Websphere) -->
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-core</artifactId>
@@ -66,13 +65,6 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<scope>provided</scope>
 			<version>3.1.0</version>
-		</dependency>
-
-		<!-- Config -->
-		<dependency>
-			<groupId>com.github.bordertech.config</groupId>
-			<artifactId>config</artifactId>
-			<version>1.0.5</version>
 		</dependency>
 
 		<!-- Junit -->

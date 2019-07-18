@@ -17,6 +17,7 @@
 
 	<properties>
 		<spotbugs.excludeFilterFile>${basedir}/spotbugs-exclude-filter.xml</spotbugs.excludeFilterFile>
+		<suppressionFiles>${basedir}/../jackson-owasp-suppression.xml</suppressionFiles>
 	</properties>
 
 	<dependencies>
@@ -62,11 +63,11 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
 		<!-- Config -->
-		<dependency>
+		<dependency> 
 			<groupId>com.github.bordertech.config</groupId>
 			<artifactId>config</artifactId>
-			<version>1.0.5</version>
 		</dependency>
 
 		<!-- Date and Time Formatting -->

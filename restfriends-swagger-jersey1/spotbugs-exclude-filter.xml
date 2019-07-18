@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<FindBugsFilter>
-
-	<!-- False Positive on redirect swagger UI -->
-	<Match>
-		<Bug pattern="UNVALIDATED_REDIRECT" />
-	</Match>
-
-</FindBugsFilter>
