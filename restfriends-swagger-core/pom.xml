@@ -65,7 +65,7 @@
 		</dependency>
 
 		<!-- Config -->
-		<dependency> 
+		<dependency>
 			<groupId>com.github.bordertech.config</groupId>
 			<artifactId>config</artifactId>
 		</dependency>
@@ -82,6 +82,14 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Jaxrs -->
+		<dependency>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>javax.ws.rs-api</artifactId>
+			<version>2.0.1</version>
 			<scope>provided</scope>
 		</dependency>
 
