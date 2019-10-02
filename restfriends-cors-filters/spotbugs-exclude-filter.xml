@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+
+	<!-- False Positive on CORS Headers -->
+	<Match>
+		<Bug pattern="PERMISSIVE_CORS" />
+	</Match>
+
+</FindBugsFilter>

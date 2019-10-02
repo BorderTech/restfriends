@@ -17,6 +17,10 @@
 
 	<properties>
 		<bt.qa.skip>false</bt.qa.skip>
+		<!-- Report Vulnerabilities. -->
+		<failBuildOnCVSS>11</failBuildOnCVSS>
+		<!-- Update every 168 hours (7 days) -->
+		<cveValidForHours>168</cveValidForHours>
 	</properties>
 
 	<description>
@@ -41,12 +45,15 @@
 		<system>Travis CI</system>
 		<url>https://travis-ci.com/BorderTech/restfriends</url>
 	</ciManagement>
+
+
 	<modules>
 		<module>restfriends-envelope</module>
 		<module>restfriends-swagger-core</module>
 		<module>restfriends-swagger-jersey1</module>
 		<module>restfriends-swagger-jersey2</module>
 		<module>restfriends-swagger-json-fix</module>
+		<module>restfriends-cors-filters</module>
 	</modules>
 
 	<dependencyManagement>
