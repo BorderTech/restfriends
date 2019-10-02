@@ -49,10 +49,11 @@
 
 	<modules>
 		<module>restfriends-envelope</module>
+		<module>restfriends-swagger-ui</module>
+		<module>restfriends-swagger-json-fix</module>
 		<module>restfriends-swagger-core</module>
 		<module>restfriends-swagger-jersey1</module>
 		<module>restfriends-swagger-jersey2</module>
-		<module>restfriends-swagger-json-fix</module>
 		<module>restfriends-cors-filters</module>
 	</modules>
 
