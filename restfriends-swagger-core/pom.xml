@@ -65,7 +65,7 @@
 		</dependency>
 
 		<!-- Config -->
-		<dependency> 
+		<dependency>
 			<groupId>com.github.bordertech.config</groupId>
 			<artifactId>config</artifactId>
 		</dependency>
