@@ -24,7 +24,7 @@ public final class SwaggerPathConfig {
 	 * @return the default swagger UI path
 	 */
 	public static String getSwaggerUiPath() {
-		return Config.getInstance().getString("bordertech.swagger.ui.path", "swagger-ui");
+		return Config.getInstance().getString("bordertech.swagger.ui.path", "swaggerui");
 	}
 
 	/**
