@@ -1,5 +1,6 @@
 package com.github.bordertech.swagger.servlet;
 
+import com.github.bordertech.swagger.util.PathUtil;
 import org.junit.Assert;
 import org.junit.Test;
 

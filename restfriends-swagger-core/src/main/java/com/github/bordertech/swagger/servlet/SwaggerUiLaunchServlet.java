@@ -1,17 +1,20 @@
 package com.github.bordertech.swagger.servlet;
 
+import com.github.bordertech.swagger.util.PathUtil;
+import com.github.bordertech.swagger.util.SwaggerProperties;
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  * Redirect to the static swagger ui with the API location details.
+ * <p>
+ * Applications can add this servlet to help launch the swagger UI configured with API details.
+ * </p>
  */
-@WebServlet(urlPatterns = "/launchswagger", loadOnStartup = 3)
-public class SwaggerUiRedirectServlet extends HttpServlet {
+public class SwaggerUiLaunchServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(final HttpServletRequest req, final HttpServletResponse resp) throws ServletException, IOException {
@@ -27,9 +30,10 @@ public class SwaggerUiRedirectServlet extends HttpServlet {
 	 */
 	protected String buildRedirectUiPath(final HttpServletRequest req) {
 		String ctx = req.getServletContext().getContextPath();
-		String uiPath = PathUtil.prefixUrl(ctx, SwaggerPathConfig.getSwaggerUiPath());
-		String apiPath = PathUtil.prefixUrl(ctx, SwaggerPathConfig.getApiPath());
-		return uiPath + "/index.html?url=" + apiPath + "/swagger";
+		String uiPath = PathUtil.prefixUrl(ctx, SwaggerProperties.getSwaggerUiPath());
+		String apiPath = PathUtil.prefixUrl(ctx, SwaggerProperties.getApiPath());
+		String uiParams = SwaggerProperties.getSwaggerUiParams();
+		return uiPath + "/index.html?url=" + apiPath + "/swagger" + uiParams;
 	}
 
 }

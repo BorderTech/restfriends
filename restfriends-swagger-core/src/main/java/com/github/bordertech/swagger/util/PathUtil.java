@@ -1,4 +1,4 @@
-package com.github.bordertech.swagger.servlet;
+package com.github.bordertech.swagger.util;
 
 import org.apache.commons.lang3.StringUtils;
 
