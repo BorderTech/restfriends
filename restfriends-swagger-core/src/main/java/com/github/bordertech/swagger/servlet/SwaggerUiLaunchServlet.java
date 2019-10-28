@@ -7,6 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  * Redirect to the static swagger ui with the API location details.
@@ -16,13 +18,15 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class SwaggerUiLaunchServlet extends HttpServlet {
 
+	private static final Log LOG = LogFactory.getLog(SwaggerUiLaunchServlet.class);
+
 	@Override
 	protected void doGet(final HttpServletRequest req, final HttpServletResponse resp) throws ServletException, IOException {
 		String redirect = buildRedirectUiPath(req);
 		try {
 			resp.sendRedirect(redirect);
 		} catch (IOException e) {
-			throw new IllegalStateException("Could not redirect to swagger ui.", e);
+			LOG.error("Could not redirect to swagger ui", e);
 		}
 	}
 
