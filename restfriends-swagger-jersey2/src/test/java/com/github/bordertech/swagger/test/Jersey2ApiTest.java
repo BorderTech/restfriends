@@ -81,18 +81,4 @@ public class Jersey2ApiTest {
 				.assertThat()
 				.statusCode(500);
 	}
-
-	@Test
-	public void testLaunchSwagger() {
-		RestAssured.given().
-				log().all()
-				.when()
-				.get("/launchswagger")
-				.then()
-				.assertThat()
-				.statusCode(200)
-				.and()
-				.contentType(ContentType.HTML)
-				.body("html.head.title", IsEqual.equalTo("Swagger UI"));
-	}
 }
