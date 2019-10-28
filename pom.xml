@@ -66,6 +66,18 @@
 				<artifactId>config</artifactId>
 				<version>1.0.5</version>
 			</dependency>
+			<!-- Rest Assured -->
+			<dependency>
+				<groupId>io.rest-assured</groupId>
+				<artifactId>rest-assured</artifactId>
+				<version>3.3.0</version>
+			</dependency>
+			<!-- LDE Tomcat -->
+			<dependency>
+				<groupId>com.github.bordertech.lde</groupId>
+				<artifactId>lde-tomcat</artifactId>
+				<version>1.0.4</version>
+			</dependency>
 
 		</dependencies>
 	</dependencyManagement>
