@@ -5,6 +5,7 @@ package com.github.bordertech.swagger.sample.app;
  */
 import com.github.bordertech.restfriends.envelope.impl.ErrorResponse;
 import com.github.bordertech.restfriends.exception.RestBusinessException;
+import com.github.bordertech.restfriends.exception.RestSystemException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -29,6 +30,12 @@ public class SampleApi {
 	@Path("/tests")
 	@ApiOperation(value = "Test GET")
 	public SampleResponse doTestGet(@ApiParam(value = "ECHO Value") @QueryParam(value = "echo") final String echo) throws RestBusinessException {
+		if ("bus".equals(echo)) {
+			throw new RestBusinessException("Mock business exception");
+		}
+		if ("sys".equals(echo)) {
+			throw new RestSystemException("Mock system exception");
+		}
 		return new SampleResponse(echo);
 	}
 

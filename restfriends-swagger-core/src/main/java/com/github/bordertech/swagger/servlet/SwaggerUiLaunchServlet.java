@@ -19,7 +19,11 @@ public class SwaggerUiLaunchServlet extends HttpServlet {
 	@Override
 	protected void doGet(final HttpServletRequest req, final HttpServletResponse resp) throws ServletException, IOException {
 		String redirect = buildRedirectUiPath(req);
-		resp.sendRedirect(redirect);
+		try {
+			resp.sendRedirect(redirect);
+		} catch (IOException e) {
+			resp.sendError(500, "Could not redirect to swagger ui.");
+		}
 	}
 
 	/**

@@ -17,7 +17,7 @@ import org.junit.Test;
 /**
  * RestAssured API tests for AttachmentViewerApi.
  */
-public class ApiTest {
+public class Jersey2ApiTest {
 
 	@BeforeClass
 	public static void startTomcat() {
@@ -30,7 +30,7 @@ public class ApiTest {
 	}
 
 	@Before
-	public void setup() {
+	public void configRestAssured() {
 		RestAssured.baseURI = LdeLauncher.getProvider().getBaseUrl();
 		RestAssured.port = LdeLauncher.getProvider().getPort();
 	}
@@ -38,9 +38,9 @@ public class ApiTest {
 	@Test
 	public void testGetEcho() {
 		String value = "mytest";
-		RestAssured.given().
-				log().all().
-				queryParam("echo", "mytest")
+		RestAssured.given()
+				.log().all()
+				.queryParam("echo", value)
 				.when()
 				.get("/api/v1/tests")
 				.then()
@@ -49,6 +49,30 @@ public class ApiTest {
 				.and()
 				.contentType(ContentType.JSON)
 				.body("data", IsEqual.equalTo(value));
+	}
+
+	@Test
+	public void testGetBusinessException() {
+		RestAssured.given()
+				.log().all()
+				.queryParam("echo", "bus")
+				.when()
+				.get("/api/v1/tests")
+				.then()
+				.assertThat()
+				.statusCode(400);
+	}
+
+	@Test
+	public void testGetSystemException() {
+		RestAssured.given()
+				.log().all()
+				.queryParam("echo", "sys")
+				.when()
+				.get("/api/v1/tests")
+				.then()
+				.assertThat()
+				.statusCode(500);
 	}
 
 	@Test
