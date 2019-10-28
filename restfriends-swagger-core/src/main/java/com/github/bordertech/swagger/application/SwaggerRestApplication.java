@@ -50,9 +50,7 @@ public class SwaggerRestApplication extends Application {
 		// Add exception handlers
 		resources.addAll(getExceptionMapperClasses());
 		// Add application specific classes
-		for (Class clazz : applClazzes) {
-			resources.add(clazz);
-		}
+		resources.addAll(applClazzes);
 		return resources;
 	}
 

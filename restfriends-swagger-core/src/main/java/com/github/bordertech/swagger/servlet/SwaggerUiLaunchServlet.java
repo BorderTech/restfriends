@@ -22,7 +22,7 @@ public class SwaggerUiLaunchServlet extends HttpServlet {
 		try {
 			resp.sendRedirect(redirect);
 		} catch (IOException e) {
-			resp.sendError(500, "Could not redirect to swagger ui.");
+			throw new IllegalStateException("Could not redirect to swagger ui.", e);
 		}
 	}
 

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.github.bordertech.swagger.test;
 
 import com.github.bordertech.lde.api.LdeLauncher;
@@ -68,6 +63,18 @@ public class Jersey2ApiTest {
 		RestAssured.given()
 				.log().all()
 				.queryParam("echo", "sys")
+				.when()
+				.get("/api/v1/tests")
+				.then()
+				.assertThat()
+				.statusCode(500);
+	}
+
+	@Test
+	public void testGetOtherException() {
+		RestAssured.given()
+				.log().all()
+				.queryParam("echo", "other")
 				.when()
 				.get("/api/v1/tests")
 				.then()

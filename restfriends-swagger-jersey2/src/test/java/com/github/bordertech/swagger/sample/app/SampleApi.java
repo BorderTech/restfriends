@@ -36,6 +36,9 @@ public class SampleApi {
 		if ("sys".equals(echo)) {
 			throw new RestSystemException("Mock system exception");
 		}
+		if ("other".equals(echo)) {
+			throw new IllegalArgumentException("Mock other exception");
+		}
 		return new SampleResponse(echo);
 	}
 
