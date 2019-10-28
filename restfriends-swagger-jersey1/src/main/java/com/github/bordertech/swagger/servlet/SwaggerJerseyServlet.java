@@ -1,5 +1,7 @@
 package com.github.bordertech.swagger.servlet;
 
+import com.github.bordertech.swagger.util.SwaggerProperties;
+import com.github.bordertech.swagger.util.PathUtil;
 import com.github.bordertech.swagger.application.SwaggerRestApplication;
 import com.sun.jersey.spi.container.servlet.ServletContainer;
 import io.swagger.config.SwaggerConfig;
@@ -41,9 +43,9 @@ public class SwaggerJerseyServlet extends ServletContainer {
 		// Application context
 		String context = config.getServletContext().getContextPath();
 		// Set API path
-		apiPath = PathUtil.prefixUrl(context, SwaggerPathConfig.getApiPath());
+		apiPath = PathUtil.prefixUrl(context, SwaggerProperties.getApiPath());
 		// Check if HOST has been set via properties
-		host = SwaggerPathConfig.getHostPath();
+		host = SwaggerProperties.getHostPath();
 	}
 
 	/**

@@ -1,16 +1,16 @@
-package com.github.bordertech.swagger.servlet;
+package com.github.bordertech.swagger.util;
 
 import com.github.bordertech.config.Config;
 
 /**
- * Swagger path configuration helper class.
+ * Swagger properties helper class.
  */
-public final class SwaggerPathConfig {
+public final class SwaggerProperties {
 
 	/**
 	 * Private constructor.
 	 */
-	private SwaggerPathConfig() {
+	private SwaggerProperties() {
 	}
 
 	/**
@@ -25,6 +25,13 @@ public final class SwaggerPathConfig {
 	 */
 	public static String getSwaggerUiPath() {
 		return Config.getInstance().getString("bordertech.swagger.ui.path", "swaggerui");
+	}
+
+	/**
+	 * @return the swagger UI parameters to include on swagger UI URL
+	 */
+	public static String getSwaggerUiParams() {
+		return Config.getInstance().getString("bordertech.swagger.ui.params", "&operationsSorter=alpha");
 	}
 
 	/**

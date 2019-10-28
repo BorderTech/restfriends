@@ -17,6 +17,9 @@
 
 	<properties>
 		<suppressionFiles>${basedir}/../jackson-owasp-suppression.xml</suppressionFiles>
+		<enforcer.fail>false</enforcer.fail>
+		<!-- Needed for tomcat jar lookups -->
+		<surefire.useSystemClassLoader>false</surefire.useSystemClassLoader>
 	</properties>
 
 	<dependencies>
@@ -101,6 +104,18 @@
 		<dependency>
 			<groupId>org.junit.vintage</groupId>
 			<artifactId>junit-vintage-engine</artifactId>
+		</dependency>
+		<!-- Rest Assured -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- LDE Tomcat -->
+		<dependency>
+			<groupId>com.github.bordertech.lde</groupId>
+			<artifactId>lde-tomcat</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 	</dependencies>

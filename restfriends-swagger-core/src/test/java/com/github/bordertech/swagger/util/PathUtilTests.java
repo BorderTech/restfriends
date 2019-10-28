@@ -1,4 +1,4 @@
-package com.github.bordertech.swagger.servlet;
+package com.github.bordertech.swagger.util;
 
 import org.junit.Assert;
 import org.junit.Test;

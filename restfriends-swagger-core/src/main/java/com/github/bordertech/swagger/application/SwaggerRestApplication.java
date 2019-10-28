@@ -43,13 +43,14 @@ public class SwaggerRestApplication extends Application {
 	@Override
 	public Set<Class<?>> getClasses() {
 		Set<Class<?>> resources = new HashSet<>();
+		// Add swagger resources
 		resources.add(AcceptHeaderApiListingResource.class);
 		resources.add(ApiListingResource.class);
 		resources.add(SwaggerSerializers.class);
+		// Add exception handlers
 		resources.addAll(getExceptionMapperClasses());
-		for (Class clazz : applClazzes) {
-			resources.add(clazz);
-		}
+		// Add application specific classes
+		resources.addAll(applClazzes);
 		return resources;
 	}
 
